@@ -9,7 +9,8 @@ namespace OMDB_API_Lab.Models
         {
             //Adjust
             //Setup
-            string url = $"https://www.omdbapi.com/?t={title}&apikey=c003bd99";
+            string apiKey = Secret.apiKey;
+            string url = $"https://www.omdbapi.com/?t={title}&apikey={apiKey}";
 
             //Request
             HttpWebRequest request = WebRequest.CreateHttp(url);
