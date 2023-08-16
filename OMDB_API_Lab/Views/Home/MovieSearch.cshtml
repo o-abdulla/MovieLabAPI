@@ -10,10 +10,18 @@
 @{
     if (Model != null)
     {
-        <h1>@Model.Title</h1>
-        <img src="@Model.Poster" />
-        <h2>Genre: @Model.Genre</h2>
-        <p>Rating: @Model.imdbRating</p>
-        <p>Actors: @Model.Actors </p>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="@Model.Poster" class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.Title</h5>
+                        <p class="card-text">@Model.Plot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 }
