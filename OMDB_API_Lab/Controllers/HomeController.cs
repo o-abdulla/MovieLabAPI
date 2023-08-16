@@ -21,7 +21,7 @@ namespace OMDB_API_Lab.Controllers
         [HttpGet]
         public IActionResult MovieSearchForm()
         {
-            return View("MovieSearch");
+            return View("MovieSearch");    //need the quotes when the method name is differenct from view or sending to a specific view
         }
 
 
@@ -29,14 +29,14 @@ namespace OMDB_API_Lab.Controllers
         public IActionResult MovieSearchResults(string title)
         {
             MovieModel result = MovieSearchDAL.GetMovie(title);
-            return View("MovieSearch", result);
+            return View("MovieSearch", result);    //need the quotes when the method name is differenct from view or sending to a specific view
         }
 
 
         [HttpGet]
         public IActionResult MovieNightForm()
         {
-            return View("MovieNight");
+            return View("MovieNight");    //need the quotes when the method name is differenct from view or sending to a specific view
         }
       
 
@@ -44,14 +44,11 @@ namespace OMDB_API_Lab.Controllers
         public IActionResult MovieNightResults(string title1, string title2, string title3)
         {
             List<MovieModel> result = new List<MovieModel>();
-            MovieModel m1 = MovieSearchDAL.GetMovie(title1);
-            result.Add(m1);
-            MovieModel m2 = MovieSearchDAL.GetMovie(title2);
-            result.Add(m2);
-            MovieModel m3 = MovieSearchDAL.GetMovie(title3);
-            result.Add(m3);
+            result.Add(MovieSearchDAL.GetMovie(title1));
+            result.Add(MovieSearchDAL.GetMovie(title2));
+            result.Add(MovieSearchDAL.GetMovie(title3));
 
-            return View("MovieNight", result);
+            return View("MovieNight", result);    //need the quotes when the method name is differenct from view or sending to a specific view
         }
         public IActionResult Privacy()
         {
